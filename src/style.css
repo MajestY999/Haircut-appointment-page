@@ -1,0 +1,62 @@
+
+html, body, #root {
+  height: 100%;
+}
+
+* { box-sizing: border-box; }
+ 
+html {
+  background:
+    /* акцентные пятна */
+    radial-gradient(260px 140px at 18% 12%, rgba(75, 175, 235, 0.25), transparent 70%),
+    radial-gradient(220px 120px at 84% 88%, rgba(30, 150, 220, 0.22), transparent 72%),
+    radial-gradient(240px 130px at 50% 8%, rgba(60, 180, 245, 0.18), transparent 72%),
+    /* лёгкий «шум» */
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 2px),
+    /* основной плавный градиент (телеграм‑голубой) */
+    linear-gradient(180deg,
+      #e8f3ff 0%,
+      #d8efff 25%,
+      #cfe9ff 55%,
+      #bfe1ff 75%,
+      #b9dcff 100%
+    );
+  background-attachment: fixed;
+  background-blend-mode: soft-light, normal, normal, normal, normal;
+  background-repeat: no-repeat;
+}
+
+body {
+  margin: 0;
+  color: #1e2b3a;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: transparent;
+}
+
+/* Тёмная тема — холодный тёмно‑синий */
+@media (prefers-color-scheme: dark) {
+  html {
+    background:
+      radial-gradient(260px 140px at 18% 12%, rgba(75, 175, 235, 0.20), transparent 70%),
+      radial-gradient(220px 120px at 84% 88%, rgba(30, 150, 220, 0.18), transparent 72%),
+      radial-gradient(240px 130px at 50% 8%, rgba(60, 180, 245, 0.16), transparent 72%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 2px),
+      linear-gradient(180deg,
+        #0f1b2a 0%,
+        #142235 25%,
+        #182b42 55%,
+        #1b324c 75%,
+        #1d3653 100%
+      );
+    background-attachment: fixed;
+    background-blend-mode: soft-light, normal, normal, normal, normal;
+  }
+  body { color: #eaf3ff; }
+}
+
+/* Экономия эффектов */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    background: linear-gradient(180deg, #e8f3ff 0%, #cfe9ff 55%, #b9dcff 100%);
+  }
+}

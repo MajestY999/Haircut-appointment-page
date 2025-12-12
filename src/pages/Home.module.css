@@ -1,0 +1,178 @@
+:root{
+  --bg-1:#f3f8f4;
+  --bg-2:#e8f2ea;
+  --card-top:#7194c4;     /* верх карточки — небелый */
+  --card-bottom:#75757d;  /* низ карточки — небелый */
+  --text:#153726;
+  --muted:#5b7463;
+  --accent:#146c43;
+  --border:#b8d3c2;
+  --radius:14px;
+}
+
+/* Страница */
+.container{
+  padding:28px;
+  min-height:100vh;
+
+  background: transparent;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  box-sizing:border-box;
+}
+
+/* Хедер */
+.hero{ text-align:center; margin-bottom:24px; }
+.title{ font-size:32px; margin:6px 0; color:#0d5a36; letter-spacing:-0.2px; }
+.subtitle{ margin:0; color:var(--muted); font-size:14px; }
+
+/* Заголовок секции */
+.sectionTitle{
+  text-align:center;
+  font-size:18px;
+  margin:18px 0 20px;
+  color:#1b3b2a;
+}
+
+/* Сетка карточек */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap:18px;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 12px;
+  align-items:start;
+}
+
+/* Карточка — небелый градиент + лёгкая текстура */
+.card{
+  background:
+    linear-gradient(180deg, var(--card-top) 0%, var(--card-bottom) 100%),
+    radial-gradient(140px 70px at 18% 0%, rgba(20,108,67,0.10) 0%, rgba(20,108,67,0.00) 75%);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  box-sizing:border-box;
+  transition: transform .14s ease, border-color .14s ease, background .14s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Небольшой акцент сверху */
+.card::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0;
+  height:4px;
+  background: linear-gradient(90deg, rgba(20,108,67,0.28), rgba(20,108,67,0.08));
+}
+
+/* Hover — спокойно */
+.card:hover{
+  transform: translateY(-2px);
+  background:
+    linear-gradient(180deg, #e5f3ec 0%, #def0e8 100%),
+    radial-gradient(140px 70px at 18% 0%, rgba(20,108,67,0.16) 0%, rgba(20,108,67,0.00) 78%);
+  border-color:#a9cdbb;
+}
+
+/* Состояние выбранной карточки (outline задаётся инлайн-стилем в Home.jsx) */
+.cardSelected{
+  outline: 2px solid var(--accent);
+}
+
+/* Верхний баннер — не белый */
+.image{
+  height:110px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(135deg, #d7ece1 0%, #ebf7f1 100%);
+}
+.image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(120px 60px at 85% 25%, rgba(20,108,67,0.12), transparent 60%),
+    radial-gradient(140px 70px at 10% 80%, rgba(20,108,67,0.08), transparent 60%);
+  opacity:.6;
+}
+
+/* Заголовок карточки */
+.cardTitle{
+  font-size:16px;
+  font-weight:700;
+  margin:4px 0 2px;
+  color: var(--text);
+}
+
+/* Цена */
+.price{
+  display:inline-block;
+  align-self:flex-start;
+  margin-top:2px;
+  padding:6px 10px;
+  font-size:13px;
+  font-weight:700;
+  color:#0f5a2a;
+  background: linear-gradient(180deg, #e8f5ed, #dff1e6);
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+/* Кнопка — контурная, плоская */
+.btn{
+  margin-top:auto;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  height:36px;
+  padding:0 12px;
+  border-radius:10px;
+  color:#0f5a2a;
+  background:#eaf5ee;
+  border:1px solid var(--border);
+  font-weight:600;
+  font-size:14px;
+  transition: background .12s ease, color .12s ease, transform .06s ease, border-color .12s ease;
+}
+.btn:hover{
+  background:#e3f2ea;
+  border-color:#a6cfbb;
+  transform: translateY(-1px);
+  color:#0b4520;
+}
+
+/* Фокус */
+.btn:focus{
+  outline:none;
+  box-shadow: 0 0 0 3px rgba(20,108,67,0.14);
+}
+
+/* Адаптив */
+@media (max-width:900px){
+  .grid{ gap:16px; }
+  .title{ font-size:30px; }
+}
+
+@media (max-width:680px){
+  .grid{ grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .card{ padding:12px; border-radius:12px; }
+  .image{ height:96px; }
+  .cardTitle{ font-size:15px; }
+}
+
+@media (max-width:480px){
+  .title{ font-size:24px; }
+  .grid{ gap:12px; }
+  .card{ padding:10px; }
+  .image{ height:86px; border-radius:8px; }
+  .btn{ height:34px; font-size:13px; }
+  .price{ font-size:12px; padding:6px 8px; }
+}
