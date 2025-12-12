@@ -112,7 +112,7 @@ export default function Admin() {
   return (
     <main className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Админка — записи</h1>
+        <h1 className={styles.title}>Админ панель - записи</h1>
         <div className={styles.headerActions}>
           <input
             className={styles.search}
