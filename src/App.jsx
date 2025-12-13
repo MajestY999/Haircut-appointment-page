@@ -1,27 +1,28 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Admin from './pages/Admin';
-import Home from './pages/Home';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
-import Booking from './pages/booking';
+import Home from './pages/Home';
 import Person from './pages/Person';
-import "./style.css"
+import Booking from './pages/booking';
+import Admin from './pages/Admin';
+import './style.css';
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
       <Routes>
+        {/* Главная */}
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        {/* профиль парикмахера */}
+        {/* Профиль парикмахера */}
         <Route path="/person/:id" element={<Person />} />
-        {/* окно записи */}
+        {/* Окно записи */}
         <Route path="/booking" element={<Booking />} />
+        {/* Админка */}
         <Route path="/admin" element={<Admin />} />
+        {/* Любые другие пути -> на главную */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );
 }
-
-export default App;
