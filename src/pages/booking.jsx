@@ -69,7 +69,7 @@ export default function Booking() {
     setDateStr('');
     setTimeStr('');
 
-    // по желанию: перейти сразу в админку
+    
     navigate('/admin');
   };
 
