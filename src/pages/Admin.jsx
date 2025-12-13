@@ -45,7 +45,7 @@ function normalizeTime(t) {
   return `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}`;
 }
 
-// ДОБАВЛЕНО: нормализация расписания
+//  нормализация расписания
 function normalizeSchedule(s) {
   const rawDays = Array.isArray(s.workDays) ? s.workDays : [];
   const dayKeys = rawDays
